@@ -1,0 +1,80 @@
+Biến tĩnh và phương thức tỉnh trong Java:
+Biến Static:
+    Là biến có thể sử dụng mà không cần khởi tạo đối tượng. Cú pháp khởi tạo biến Static:
+    class Counter{
+        //Khai báo biến static có tên là count:
+        public static int count;
+    }
+
+    class Entry {
+        public static void main(String[] argv) {
+            Counter c = new Counter();
+            c.count = 7;
+            System.out.println(c.count);
+        }
+    }
+    
+    >>  7
+
+    Ngoài việc sử dụng mà không cần khởi tạo thì biến static còn chia sẻ bởi tất cả các đối tượng trong một chương trình (Giá trị của biến sattic là giống nhau.)
+    So sánh:
+    1. Biến thường:
+        class Counter {
+            int count;
+
+            public Counter() {
+                count++;
+                System.out.println(count);
+            }
+        }
+
+        class Entry {
+            public static void main(String[] argv) {
+                Counter c1 = new Counter();
+                Counter c2 = new Counter();
+                Counter c3 = new Counter();
+            }
+        }
+
+        >>  1
+            1
+            1
+
+        Do mỗi lần gọi Counter,... count là thuộc tính riêng của mỗi đối tượng đó, không lien quan đế những đối tượng  khác.
+        
+    2. Biến Static:
+        Tuy nhiên nếu sử dụng static:
+        class Counter {
+            static int count;
+
+            public Counter() {
+                count++;
+                System.out.println(count);
+            }
+        }
+
+        class Entry {
+            public static void main(String[] argv) {
+                Counter c1 = new Counter();
+                Counter c2 = new Counter();
+                Counter c3 = new Counter();
+            }
+        }
+
+        >>  1
+            2
+            3
+        
+        Chính vì tên biến static được dùng nên giá trị của nó sẽ được lưu trên cả chương trình, lúc này count không được coi như là một thuộc tính do nó không thuộc đối tượng nào.
+
+Phương thức static:
+    Tương tự như biến static, phương thức static cũng được khai báo bằng từ khóa static.
+    Phương thức sattic có thể được gọi mà không cần khởi tạo.
+    Trong cùng một lớp, phương thức static có thể gọi tới phương thức static khác, nhưng không thể gọi phương thức khác static.
+    Trong cùng một lớp, phương thức static không thể gọi tới các thuộc tính không phải static.
+
+Nạp chồng phương thức:
+    Nếu một lớp có nhiều phương thức cùng tên nhưng khác nhau về kiểu dữ liệu hoặc số tham số thì đó là nạp chồng phương thức.
+    Các phương thức nạp chồng có thể gọi tới nhau.
+    -> Trành việc tạo nhiều phương thức với tên gọi khác nhau, giúp code trở nên gọn gàng, dễ đọc hơn.
+    
