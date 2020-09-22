@@ -1,0 +1,26 @@
+Private và Public:
+----------------------------------------------------
+Phạm vi truy cập:
+    Khái niệm để xác định xem một biến hay một phương thức có được truy xuất bên ngoài hay không.
+    Trong Java có 4 loại: private, default, protected, public.
+    Phạm vi truy cập của mỗi loại:
+        Truy cập trong class: Cả 4.
+        Truy cập bên trong package: Trừ private.
+        Truy cập bên ngoài package bởi class con: protected, public.
+        Truy cập bên ngoài class và không thuộc class con: public.
+    
+    Phạm vi truy cập private:
+        Phạm vi truy cập hạn chế nhất: tất cả thuộc tính và phương thức chỉ được truy cập bên trong class đó.
+    Phạm vi truy cập mặc định (default):
+        Khi khai báo thuộc tính hoặc một chương trình mà không khai báo phạm vi truy cập thì chương trình sẽ hiểu phạm vi truy cập là default. Các biến và phương thức truy cập mặc định chỉ có thể truy xuất trong cùng một package.
+    Phạm vi truy cập protected:
+        Tương tự default nhưng hạn chế hơn ở chỗ các thuộc tính và phương thức có thể được truy xuất từ lớp con của một package khác.
+    Phạm vi truy cập public:
+    Phạm vi truy cập rộng nhất.
+
+
+Constructor (Phương thức khởi tạo):
+-----------------------------------------------------
+Trong Java, Constructor một dạng đặt biệt của phương thức, dùng để khởi tạo các giá trị.
+Mẫu: Constructor2.java
+Nếu một lớp đã khai báo Constructor thì chương trình sẽ không tự tạo Constructor mặc định (Constructor không có tham số) nữa.
