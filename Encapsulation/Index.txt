@@ -1,0 +1,39 @@
+Tính đóng gói
+---------------------------------------------------------------------
+Tính đóng gói là kỹ thuật giúp che giấu những thông tin bên trong đối tượng. Mục đích của tính đóng gói là hạn chế các lỗi khi phát triển chương trình.
+Ví dụ:
+    class Student {
+        public String name;
+        public int age;
+        public double gpa;
+    }
+    => Thuộc tính của class Student có thể được truy cập từ nơi khác => vi phạm tính đóng gói. Trên thực tế, để đảm báo tính đóng gói, các thuộc tính sẽ có phạm vi truy cập là private và sẽ được truy xuất thông qua các phương thức public.
+
+    class Student {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+    }
+
+Với các làm này, thông tin của đối tượng sẽ bị ẩn đi và chỉ được truy cập thông qua các phương thức.
+Các lợi ích của việc đóng gói mang lại:
+    - Hạn chế các truy xuất không hợp lệ tới các thuộc tính cảu đối tượng.
+    - Giúp trạng thái của các đối tượng luôn đúng. Ví dụ:
+        public void setGpa(double gpa) {
+            if(gpa >=0 && gpa <= 4) {
+                this.gpa = gpa;
+            }
+            else {
+                System.out.println("gpa is invalid");
+            }
+        }
+    => Có thể thay gpa thành bất kỳ giá trị nào sao cho thỏa điều kiện.
+
+    - Giúp ẩn đi thông tin không cần thiết về đối tượng.
+    - Cho phép thay đổi cấu trúc bên trong lớp này mà không ảnh hưởng tới lớp khác.
+
+
+Dùng getter và setter để khởi tạo và gán đối tượng, Ví dụ Simple.java
+    Trên thực tế: Ưu tiên phương thức khởi tạo tham số trước.
